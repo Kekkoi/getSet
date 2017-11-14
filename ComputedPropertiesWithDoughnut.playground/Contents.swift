@@ -9,7 +9,9 @@ struct DoughnutShopwithGet {
     var eatenDoughnuts = 0
     
     
- // This is a read only computed property where we need to explicitly define its type, in our case Int. Then in brackets we automatically return the value of doughnutsLeft. If we want to we can leave the get {} if we do not have a set.
+ // This is a read only computed property where we need to explicitly define its type, in our case Int. 
+ // Then in brackets we automatically return the value of doughnutsLeft. 
+ // If we want to we can leave the get {} if we do not have a set.
     var doughnutsLeft: Int {
         get {
         return doughnutCounter - eatenDoughnuts
@@ -28,7 +30,9 @@ doughnutShopWithGet.doughnutsLeft
 
 
 
-// Now let`s see how to use set to set a value of other properties. Do not try to set a computed property in its own setter as it will create an infinite loop. A setter is designed to set the value of other properties.
+// Now let`s see how to use set to set a value of other properties. 
+// Do not try to set a computed property in its own setter as it will create an infinite loop. 
+// A setter is designed to set the value of other properties.
 
 
 struct DoughnutShopwithGetSet {
@@ -36,7 +40,8 @@ struct DoughnutShopwithGetSet {
     var eatenDoughnuts = 0
     var moneySpentOnEatenDoughnuts = 0
     
-// We can use a single get with a property but, cannot do this if we only want to use a setter, in this case the property needs a getter and a setter.
+// We can use a single get with a property but, cannot do this if we only want to use a setter.
+// In this case the property needs a getter and a setter.
     var doughnutsLeft: Int {
         get {
             return doughnutCounter - eatenDoughnuts
@@ -51,7 +56,8 @@ struct DoughnutShopwithGetSet {
 var doughnutShop = DoughnutShopwithGetSet(doughnutCounter: 15, eatenDoughnuts: 5, moneySpentOnEatenDoughnuts: 0)
 doughnutShop.doughnutsLeft
 doughnutShop.moneySpentOnEatenDoughnuts
-// As you can see that moneySpentOnEatenDoughnuts is still 0, that is, our set will only work when it gets a new value. So if we manually give doughnutsLeft a new value the set will be called and moneySpentOnEatenDoughnuts will be calculated.
+// As you can see that moneySpentOnEatenDoughnuts is still 0, that is, our set will only work when it gets a new value. 
+// So if we manually give doughnutsLeft a new value the set will be called and moneySpentOnEatenDoughnuts will be calculated.
 doughnutShop.doughnutsLeft = 10
 doughnutShop.moneySpentOnEatenDoughnuts
 
